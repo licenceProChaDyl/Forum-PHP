@@ -64,7 +64,7 @@ class modeleCommun {
 		return $stmt->execute();
 	}
 	
-	public function getCategoriesAndSousCategories() {
+	public function getCategoriesEtSousCategories() {
 		$categories = $this->getAllCategories();
 		foreach ($categories as $key => $categorie) {
 			$categories[$key]['souscategories'] = $this->getSousCategoriesByCategorie($categorie['idCategorie']);
