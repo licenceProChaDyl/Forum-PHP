@@ -32,7 +32,6 @@ if(!empty($_POST)) {
 			}	
 	}
 }
-
 if (!empty($_REQUEST['idSujet'])) {
 	$sujet=$query->getSujet($_REQUEST['idSujet']);
 	$reponses = $query->getReponsesAndMembreBySujet($_REQUEST['idSujet']);

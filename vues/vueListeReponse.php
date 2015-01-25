@@ -13,8 +13,7 @@
 		</div>		
 			<div class="col-md-12">
 				<div class="col-md-2 well well-sm" style="min-height: 300px">
-					<p style="margin-top: 25px">
-					 
+					<p style="margin-top: 25px">	 
 						<span><?php echo $reponse['pseudoMembre'];?></span>
 						<?php if($reponse['estAdminMembre']==EST_ADMIN_OUI):?>
 							<br><span><?php echo 'Administrateur';?></span><br>
@@ -28,8 +27,7 @@
 		
 						<div class="hrSeparateur"></div>
 						<span>Nombre de messages :</span><br>
-						<span><?php echo $reponse['nbMessageMembre'];?></span><br>
-					
+						<span><?php echo $reponse['nbMessageMembre'];?></span><br>	
 					</p>
 				</div>
 							        
