@@ -87,7 +87,7 @@ class modeleMembre {
 		return $stmt->execute();
 	}
 	
-	public function getAllUsers() {
+	public function getAllMembre() {
 		$stmt = $this->pdo->prepare('SELECT * FROM membre');
 		$stmt->execute();
 	
