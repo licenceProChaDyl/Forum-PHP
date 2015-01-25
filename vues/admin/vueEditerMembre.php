@@ -42,9 +42,9 @@
                      <?php endif; ?>
                         
                         <div class="form-group">
-                            <span class="col-md-2 col-md-offset-2 text-center"> Mot de pass</span>
+                            <span class="col-md-2 col-md-offset-2 text-center"> Mot de passe</span>
                             <div class="col-md-4">
-                                <input id="mdpMembre" name="mdpMembre" type="text" placeholder="Mot de pass" class="form-control" value="">
+                                <input id="mdpMembre" name="mdpMembre" type="password" placeholder="Mot de passe" class="form-control" value="">
                             </div>
                         </div>
                         
