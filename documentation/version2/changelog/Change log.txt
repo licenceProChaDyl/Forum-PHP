@@ -1,0 +1,34 @@
+Ci-joint la version 2.0 et sa bdd.
+
+changelog :
+
+- correction bugs stats discussions et messages
+- le mdp n'est plus 'admin' par défaut, il aura la valeur du mdp crée lors de l'inscription
+- cryptage mdp en md5 en bdd
+- ajout possibilité de changer son mdp dans son profil
+- ajout d'une vue/controleur 404 sympatoche -> necessite de custom les fichiers d'apache pour que ce soit effectif  : cf ci-bas
+C:\wamp\bin\apache\apache2.4.9\conf\extra\httpd-vhosts.conf (+ajout de deux hosts phpForum.dev et ww.phpForum.dev dans le fichier hosts de windows (+reboot))
+- retiré l'ensemble des champs qui étaient obligatoires dans l'update du profil
+- création de modeleMembre et modeleStat en plus de modeleCommum histoire d'harmoniser le tout au niveau des requêtes donc MAJ de tous les controleurs
+- commentaire du code et review de tout (plus de css freestyle (ou peu), creation folders css et js plutot que d'appeler en freestyle les scripts ou styles ;)
+- divers optimisations
+
+extrait de httpd-vhosts.conf (à modifier selon cas et chemin du projet) :
+
+<VirtualHost *:80>
+    DocumentRoot "c:/users/dylan/dropbox/cours/LP_RESTEL/www-cours/phpForum"
+    ServerName phpForum.dev
+    ServerAlias www.phpForum.dev
+<Directory  "c:/users/dylan/dropbox/cours/LP_RESTEL/www-cours/phpForum/">
+         Options Indexes FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+</Directory>
+php_admin_value allow_url_fopen On
+php_admin_value log_errors 1
+php_admin_value ignore_repeated_errors 1
+RewriteEngine On
+ErrorDocument 404 /erreur.php
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+RewriteRule .* - [F]
+</VirtualHost>

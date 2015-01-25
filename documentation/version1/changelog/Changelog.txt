@@ -1,0 +1,22 @@
+Le code est a commenter et a rendre peut-être plus compréhensible ^^ 
+mais sinon il est pas loin de l'état final... 
+il y a peut-etre un ou deux bug qui traine sur la MAJ 
+des stats discussions/messages affichés en live mais c'est pas méchant.
+
+L'upload d'avatar et la génération de xml fonctionne aussi 
+(a condition de choisir une sous sous catégorie avec des posts évidemment ;)).
+
+Il y a une chose à savoir c'est que les comptes crées sont :
+
+
+
+Tu te sentirais chaud pour faire un peu de paperasse 
+style mcd avant-après, cas d'utilisation et une note sur 
+l'utilisation du forum j'ai la flemme ?
+
+Il y a une chose à savoir c'est que les comptes crées sont :
+admin (administrateur)
+moktar (membre)
+
+par défaut tous les mot de pass sont 'admin' 
+peu importe ce que tu saisis à l'inscription ;)
