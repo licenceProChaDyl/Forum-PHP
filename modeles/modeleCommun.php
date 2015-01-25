@@ -20,7 +20,7 @@ class modeleCommun {
 		$stmt = $this->pdo->prepare('SELECT * FROM categorie');
 		$stmt->execute();
 
-		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		return $stmt->fetchAll();
 	}
 	
 	public function getCategorie($idCategorie) {
@@ -28,7 +28,7 @@ class modeleCommun {
 		$stmt->bindParam(':idCategorie', $idCategorie);
 		$stmt->execute();
 	
-		return $stmt->fetch(PDO::FETCH_ASSOC);
+		return $stmt->fetch();
 	}
 	
 	public function addCategorie($idMembre, $nomCategorie, $descriptionCategorie) {
@@ -82,7 +82,7 @@ class modeleCommun {
 		$stmt = $this->pdo->prepare('SELECT * FROM souscategorie');
 		$stmt->execute();
 	
-		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		return $stmt->fetchAll();
 	}
 	
 	public function getSousCategorie($idSousCategorie) {
@@ -90,7 +90,7 @@ class modeleCommun {
 		$stmt->bindParam(':idSousCategorie', $idSousCategorie);
 		$stmt->execute();
 	
-		return $stmt->fetch(PDO::FETCH_ASSOC);
+		return $stmt->fetch();
 	}
 	
 	public function addSousCategorie($idMembre, $idCategorie, $nomSousCategorie, $descriptionSousCategorie) {
@@ -129,17 +129,17 @@ class modeleCommun {
 		$stmt2->bindParam(':idSousCategorie', $idSousCategorie);
 		$stmt2->execute();
 	
-		$idCat = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$idCat = $stmt->fetchAll();
 	
 		return $idCat[0]['idCategorie'];
 	}
 	
-	public function getSousCategoriesByCategorie($cid) {
-		$stmt = $this->pdo->prepare('SELECT * FROM souscategorie WHERE idCategorie=:cid');
-		$stmt->bindParam(':cid', $cid);
+	public function getSousCategoriesByCategorie($idCategorie) {
+		$stmt = $this->pdo->prepare('SELECT * FROM souscategorie WHERE idCategorie=:idCategorie');
+		$stmt->bindParam(':idCategorie', $idCategorie);
 		$stmt->execute();
 	
-		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		return $stmt->fetchAll();
 	}
 	
 	public function getSousCategoriesEtSujets() {
@@ -161,7 +161,15 @@ class modeleCommun {
 		$stmt = $this->pdo->prepare('SELECT * FROM sujet');
 		$stmt->execute();
 	
-		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		return $stmt->fetchAll();
+	}
+	
+	public function getAllFromSujet($idSujet) {
+		$stmt = $this->pdo->prepare('SELECT * FROM sujet WHERE idSujet=:idSujet');
+		$stmt->bindParam(':idSujet', $idSujet);
+		$stmt->execute();
+	
+		return $stmt->fetchAll();
 	}
 	
 	public function getSujet($idSujet) {
@@ -169,7 +177,7 @@ class modeleCommun {
 		$stmt->bindParam(':idSujet', $idSujet);
 		$stmt->execute();
 	
-		return $stmt->fetch(PDO::FETCH_ASSOC);
+		return $stmt->fetch();
 	}
 	
 	
@@ -210,12 +218,12 @@ class modeleCommun {
 		return $stmt->execute();
 	}
 
-	public function getSujetsBySousCategorie($cid) {
-		$stmt = $this->pdo->prepare('SELECT * FROM sujet WHERE idSousCategorie=:cid');
-		$stmt->bindParam(':cid', $cid);
+	public function getSujetsBySousCategorie($idSousCategorie) {
+		$stmt = $this->pdo->prepare('SELECT * FROM sujet WHERE idSousCategorie=:idSousCategorie');
+		$stmt->bindParam(':idSousCategorie', $idSousCategorie);
 		$stmt->execute();
 	
-		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		return $stmt->fetchAll();
 	}
 
 
@@ -229,7 +237,7 @@ class modeleCommun {
 		$stmt->bindParam(':idReponse', $idReponse);
 		$stmt->execute();
 	
-		return $stmt->fetch(PDO::FETCH_ASSOC);
+		return $stmt->fetch();
 	}
 	
 	public function getReponsesBySujet($idSujet) {
@@ -237,7 +245,7 @@ class modeleCommun {
 		$stmt->bindParam(':idSujet', $idSujet);
 		$stmt->execute();
 	
-		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		return $stmt->fetchAll();
 	}
 	
 	public function addPost($idSousCategorie, $idSujet, $idMembre, $messageReponse) {
@@ -277,7 +285,7 @@ class modeleCommun {
 		$stmt->bindParam(':idSousCategorie', $idSousCategorie);
 		$stmt->execute();
 	
-		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		return $stmt->fetchAll();
 	}
 
 	
@@ -305,7 +313,7 @@ class modeleCommun {
 		$stmt->bindParam(':idReponse', $idReponse);
 		$stmt->execute();
 	
-		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		return $stmt->fetchAll();
 	}
 	
 	public function getReponsesAndMembreBySujet($idSujet) {
@@ -319,7 +327,7 @@ class modeleCommun {
 		$stmt->bindParam(':idSujet', $idSujet);
 		$stmt->execute();
 	
-		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+		return $stmt->fetchAll();
 	}
 
 	
@@ -335,7 +343,7 @@ class modeleCommun {
 		$stmt->bindParam(':idSujet', $idSujet);
 		$stmt->execute();
 	
-		return $stmt->fetch(PDO::FETCH_ASSOC);
+		return $stmt->fetch();
 	}
 }
 
