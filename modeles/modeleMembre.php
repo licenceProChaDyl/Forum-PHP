@@ -33,7 +33,7 @@ class modeleMembre {
 			return $res[0];
 	}
 	
-	public function addUserInscription($mailMembre, $pseudoMembre, $mdpMembre){
+	public function addMembreInscription($mailMembre, $pseudoMembre, $mdpMembre){
 		$stmt = $this->pdo->prepare("
 			INSERT INTO membre (idGrade, mailMembre, mdpMembre, pseudoMembre, dateInscriptionMembre)
 			VALUES ('2', :mailMembre, :mdpMembre, :pseudoMembre, NOW())

@@ -8,7 +8,7 @@
 		$mdpMembre=md5($_POST ['motdepass']);
 		$mailMembre=$_POST ['email'];
 	
-		$modeleMembre->addUserInscription($mailMembre, $pseudoMembre, $mdpMembre);
+		$modeleMembre->addMembreInscription($mailMembre, $pseudoMembre, $mdpMembre);
 		header("Location: index.php?okInscription=1");
 	}
 	
