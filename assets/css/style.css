@@ -1,0 +1,141 @@
+@CHARSET "ISO-8859-1";
+
+/* HEADER */
+
+.toggle-header{
+    padding:10px 0;
+    margin:10px 0;
+    background-color:#428BCA;
+    color:white;
+}
+.txt-green{
+    color:green;
+}
+.txt-red{
+    color:red;
+}
+
+.txt-orange{
+    color:orange;
+}
+
+
+.well {
+    min-height: 20px;
+    /*padding: 19px;*/
+    margin-bottom: 20px;
+    background-color: #F5F5F5;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+.nav-header {
+    display: block;
+    padding: 3px 15px;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 20px;
+    color: #999;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+}
+
+.nav-list .divider {
+    height: 1px;
+    margin: 9px 1px;
+    overflow: hidden;
+    background-color: #E5E5E5;
+    border-bottom: 2px solid #FFF;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+
+.navbar-default{
+	background:#428BCA; 
+}
+
+.positionContainer{
+	padding-right:0px;
+	padding-left: 0px;
+}    
+
+/* FILTRE RECHERCHE */
+
+.filterable {
+    margin-top: 15px;
+}
+.filterable .panel-heading .pull-right {
+    margin-top: -20px;
+}
+.filterable .filters input[disabled] {
+    background-color: transparent;
+    border: none;
+    cursor: auto;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+}
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]::-moz-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]:-ms-input-placeholder {
+    color: #333;
+} 
+
+/* VUE SUJET  */     
+.hrSeparateur {
+	border-bottom: 1px solid #D0E1E8;
+	height: 8px;
+	width: 155px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+li.menuReponse{
+	display:inline;
+	margin-right:5px;
+}
+
+
+/* VUE PROFIL */
+
+.user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
+    height: 100%;
+}
+
+.dropdown-user:hover {
+    cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+.toppad
+{
+	margin-top:20px;
+}
