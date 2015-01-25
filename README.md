@@ -1,4 +1,5 @@
 # Forum-PHP
+
 ## 1. Navigation en tant que visiteur
 
 Un visiteur peu naviguer dans le forum et voir les différents sujets et messages postés. 
@@ -80,3 +81,27 @@ Fichier génnéré après :
 ## 8. Modèle conceptuel des données (MCD)
 
 ![alt tag](documentation/version2/img/MCD.png)
+
+#### Ajout d'une vue/controleur 404
+Necessite de modifier les fichiers d'apache pour que ce soit effectif.
+
+extrait de httpd-vhosts.conf (à modifier selon cas et chemin du projet) :
+'''
+<VirtualHost *:80>
+    DocumentRoot "c:/users/dylan/dropbox/cours/LP_RESTEL/www-cours/phpForum"
+    ServerName phpForum.dev
+    ServerAlias www.phpForum.dev
+<Directory  "c:/users/dylan/dropbox/cours/LP_RESTEL/www-cours/phpForum/">
+         Options Indexes FollowSymLinks MultiViews
+         AllowOverride All
+         Require all granted
+</Directory>
+php_admin_value allow_url_fopen On
+php_admin_value log_errors 1
+php_admin_value ignore_repeated_errors 1
+RewriteEngine On
+ErrorDocument 404 /erreur.php
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+RewriteRule .* - [F]
+</VirtualHost>
+'''
