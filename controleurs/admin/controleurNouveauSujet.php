@@ -2,7 +2,7 @@
 /*
  * Controleur nouveau sujet ou edition sujet
  */
-$allCategories = $query->getCategoriesAndSousCategories();
+$allCategories = $query->getCategoriesEtSousCategories();
 $errors = array();
 if(!empty($_POST)) {
 
@@ -24,7 +24,7 @@ if(!empty($_POST)) {
 			
 		} else {
 			$idSujet=$_POST['editionIdSujet'];
-			$query->updateSujet($idSousCategorie, $idMembre, $nomSujet, $messageSujet, $statutSujet, $idSujet);
+			$query->majSujet($idSousCategorie, $idMembre, $nomSujet, $messageSujet, $statutSujet, $idSujet);
 			header("Location: sousCategories.php?idSousCategorie=$idSousCategorie&successEdition=1");
 		}
 	}

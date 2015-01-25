@@ -20,7 +20,7 @@ if(!empty($_POST)) {
 			header("Location: listeCategorie.php?success=1");
 		} else {
 			$idCategorie=$_POST['editionIdCategorie'];
-			$query->updateCategorie($idMembre, $nomCategorie, $descriptionCategorie, $idCategorie);
+			$query->majCategorie($idMembre, $nomCategorie, $descriptionCategorie, $idCategorie);
 			header("Location: listeCategorie.php?successEdition=1");
 		}
 	}

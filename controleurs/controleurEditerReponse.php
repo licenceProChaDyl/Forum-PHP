@@ -13,7 +13,7 @@ if(!empty($_POST)) {
 		$idReponse=$_POST['editionIdReponse'];
 		$messageReponse=$_POST['messageReponse'];
 		if(!empty($idReponse)) {
-			$query->updateReponse($idReponse, $_SESSION['idMembre'], $messageReponse);
+			$query->majReponse($idReponse, $_SESSION['idMembre'], $messageReponse);
 			header("Location: sujets.php?idSujet=".$idSujet."&successEdition=1");
 		} 
 	}

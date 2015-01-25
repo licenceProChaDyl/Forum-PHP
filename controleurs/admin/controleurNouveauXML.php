@@ -2,7 +2,7 @@
 /*
  * Controleur nouveau xml selon sous-categorie donné
  */
-$allCategories = $query->getCategoriesAndSousCategories();
+$allCategories = $query->getCategoriesEtSousCategories();
 $errors = array();
 if(!empty($_POST)) {
 	if(empty($_POST['idSousCategorie'])) $errors[] = 'Choix de la sous catégorie obligatoire';

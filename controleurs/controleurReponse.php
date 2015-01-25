@@ -27,15 +27,9 @@ if(!empty($_POST)) {
 				header("Location: index.php?erreur=1");
 			}
 		} 
-		else {
-			if (!empty($_SESSION['idMembre'])){
-				$query->updateSujet($idSousCategorie, $idMembre, $nomSujet, $messageSujet, $dateCreationSujet, $dateClotureSujet, $visibleSujet);
-			}
-			else{
+		else{
 				header("Location: index.php?erreur=1");
-			}
-		}
-		
+			}	
 	}
 }
 

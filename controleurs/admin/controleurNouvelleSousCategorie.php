@@ -23,7 +23,7 @@ if(!empty($_POST)) {
 			header("Location: listeSousCategorie.php?success=1");
 		} else {
 			$idSousCategorie=$_POST['editionIdSousCategorie'];
-			$query->updateSousCategorie($idMembre, $idCategorie, $nomSousCategorie, $descriptionSousCategorie, $idSousCategorie);
+			$query->majSousCategorie($idMembre, $idCategorie, $nomSousCategorie, $descriptionSousCategorie, $idSousCategorie);
 			header("Location: listeSousCategorie.php?successEdition=1");
 		}
 	}

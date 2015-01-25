@@ -43,7 +43,7 @@ class modeleCommun {
 		return $stmt->execute();
 	}
 	
-	public function updateCategorie($idMembre, $nomCategorie, $descriptionCategorie, $idCategorie) {
+	public function majCategorie($idMembre, $nomCategorie, $descriptionCategorie, $idCategorie) {
 		$stmt = $this->pdo->prepare('
 			UPDATE categorie SET idMembre=:idMembre, nomCategorie=:nomCategorie, descriptionCategorie=:descriptionCategorie
 			WHERE idCategorie=:idCategorie
@@ -106,7 +106,7 @@ class modeleCommun {
 		return $stmt->execute();
 	}
 	
-	public function updateSousCategorie($idMembre, $idCategorie, $nomSousCategorie, $descriptionSousCategorie, $idSousCategorie) {
+	public function majSousCategorie($idMembre, $idCategorie, $nomSousCategorie, $descriptionSousCategorie, $idSousCategorie) {
 		$stmt = $this->pdo->prepare('
 			UPDATE souscategorie SET idMembre=:idMembre, idCategorie=:idCategorie, nomSousCategorie=:nomSousCategorie, descriptionSousCategorie=:descriptionSousCategorie
 			WHERE idSousCategorie=:idSousCategorie
@@ -142,7 +142,7 @@ class modeleCommun {
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 	
-	public function getSousCategoriesAndSujets() {
+	public function getSousCategoriesEtSujets() {
 		$sousCategories = $this->getAllSousCategories();
 		foreach ($sousCategories as $key => $sousCategorie) {
 			$sousCategories[$key]['sujets'] = $this->getSujetsBySousCategorie($sousCategorie['idSousCategorie']);
@@ -163,15 +163,6 @@ class modeleCommun {
 	
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
-	
-	public function getAllFromSujet($sujetDemande) {
-		$stmt = $this->pdo->prepare('SELECT * FROM sujet WHERE idSujet=:sujetDemande');
-		$stmt->bindParam(':sujetDemande', $sujetDemande);
-		$stmt->execute();
-	
-		return $stmt->fetchAll();
-	}
-	
 	
 	public function getSujet($idSujet) {
 		$stmt = $this->pdo->prepare('SELECT * FROM sujet WHERE idSujet=:idSujet');
@@ -196,7 +187,7 @@ class modeleCommun {
 		return $stmt->execute();
 	}
 	
-	public function updateSujet($idSousCategorie, $idMembre, $nomSujet, $messageSujet, $statutSujet, $idSujet) {
+	public function majSujet($idSousCategorie, $idMembre, $nomSujet, $messageSujet, $statutSujet, $idSujet) {
 		$stmt = $this->pdo->prepare('
 			UPDATE sujet SET idSousCategorie=:idSousCategorie, idMembre=:idMembre, nomSujet=:nomSujet, messageSujet=:messageSujet,
 			statutSujet=:statutSujet WHERE idSujet=:idSujet
@@ -262,7 +253,7 @@ class modeleCommun {
 		return $stmt->execute();
 	}
 	
-	public function updateReponse($idReponse, $idMembre, $messageReponse) {
+	public function majReponse($idReponse, $idMembre, $messageReponse) {
 		$stmt = $this->pdo->prepare('
 			UPDATE reponse SET idMembre=:idMembre, messageReponse=:messageReponse
 			WHERE idReponse=:idReponse
