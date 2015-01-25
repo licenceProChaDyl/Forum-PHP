@@ -13,7 +13,7 @@ Lorsque qu'un utilisateur se connecte au site à l’aide de ses identifiants : log
 de passe, vous accédez à la page suivante : 
 
 
-3.2 Modification des données personnelles
+## 3.2 Modification des données personnelles
 
 L'utilisateur peut modifier, s'il le souhaite ses données personnelles.
 
@@ -27,7 +27,7 @@ Lorsque l'administrateur se connecte au site à l’aide de ses identifiants : logi
 de passe, il accède à la page suivante : 
 
 
-4.2 Modification des données personnelles
+## 4.2 Modification des données personnelles
 
 L'utilisateur peut modifier, s'il le souhaite ses données personnelles.
 
