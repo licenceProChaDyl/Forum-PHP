@@ -23,7 +23,7 @@
             <div class="well well-sm">
                 <form class="form-horizontal" method="post">
                     <fieldset>
-                   <?php if (!empty($categorie['idCategorie'])): ?>
+                   <?php if (!empty($sousCategorie['idSousCategorie'])): ?>
                         <legend class="text-center header">Edition de la sous-catégorie : <?php echo !empty($sousCategorie['nomSousCategorie']) ? $sousCategorie['nomSousCategorie'] : '' ?></legend>
 					 <?php else: ?>
 					 <legend class="text-center header">Création nouvelle sous-catégorie</legend>
