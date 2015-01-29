@@ -1,11 +1,11 @@
 <?php
 /*
  * Page front pour generer xml des reponse d'un sous catégorie
- */ 
+ */
 require_once 'config.php';
 if(empty($_SESSION['idMembre']))
 {
-		header("Location:". $_SERVER["HTTP_REFERER"]."&erreur=1");
+	header("Location:".$_SERVER['HTTP_REFERER']."&erreur=1");
 }
 else{
 	include_once PATH_MODELES.'/modeleCommun.php';
@@ -14,5 +14,4 @@ else{
 	include_once PATH_VUES.'/vueHeader.php';
 	include_once PATH_VUES.'/admin/vueNouveauXML.php';
 }
-
 ?>

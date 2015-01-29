@@ -2,8 +2,14 @@
 /*
  * Fonction connexion BDD
  */
-require("loginsBDD.php");
-
+$host = $_SERVER['HTTP_HOST'];
+if($host=='www.phpforum.dylangillard.com' || $host=='phpforum.dylangillard.com'){
+	require("loginsBDD_prod.php");
+}
+else{
+	require("loginsBDD.php");
+}
+//require("loginsBDD.php");
 function connexionBDD()
 {
 	$dsn="mysql:dbname=".BASE.";host=".SERVER;
@@ -16,5 +22,4 @@ function connexionBDD()
     }
     return $connexion;
 }
-
 ?>

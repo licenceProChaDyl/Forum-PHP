@@ -27,7 +27,11 @@
                       </tr>
                        <tr>
                         <td>Grade :</td>
-                        <td><?php echo $nomGrade['nomGrade'];?></td>
+                       <?php if($membre['estAdminMembre']==EST_ADMIN_OUI):?>
+							<td><?php echo GRADE_ADMINISTRATEUR;?></td>
+						<?php else: ?>	 
+							<td><?php echo GRADE_MEMBRE;?></td>
+						<?php endif; ?>	 
                       </tr>
                       <tr>
                         <td>Date d'inscription:</td>

@@ -6,11 +6,8 @@ $_extensions = array('.jpeg','.JPEG', '.jpg','.JPG', '.png', '.PNG');
 if(!empty($_REQUEST['idMembre'])) {
 	$membre = $modeleMembre->getMembre($_REQUEST['idMembre']);
 }
-
 $errors = array();
-
 if(!empty($_POST)) {
-
 	if(empty($_POST['pseudoMembre'])) $errors[] = 'Pseudo obligatoire';
 	//if(empty($_POST['prenomMembre'])) $errors[] = 'Prenom obligatoire';
 	//if(empty($_POST['mdpMembre'])) $errors[] = 'Mot de pass obligatoire';
@@ -19,7 +16,6 @@ if(!empty($_POST)) {
 	//if(empty($_POST['cpMembre'])) $errors[] = 'Code postal obligatoire';
 	//if(empty($_POST['villeMembre'])) $errors[] = 'Ville obligatoire';
 	if(empty($_POST['mailMembre'])) $errors[] = 'Mail obligatoire';
-	
 	if($_FILES['avatar']["name"])
 	{
 		$extension = strrchr($_FILES['avatar']['name'], '.');
@@ -27,8 +23,7 @@ if(!empty($_POST)) {
 		{
 			$errors[] = 'Extension de fichier non autorisé';
 		}
-	}
-	
+	}	
 	if(empty($errors)) {
 		$idMembre=$_POST['editionIdMembre'];
 		$pseudoMembre = $_POST['pseudoMembre'];
@@ -44,14 +39,18 @@ if(!empty($_POST)) {
 		$cpMembre = $_POST['cpMembre'];
 		$villeMembre = $_POST['villeMembre'];
 		$mailMembre = $_POST['mailMembre'];
-		$estAdminMembre = $_POST['estAdminMembre'];
+		if(!empty($_POST['estAdminMembre'])){
+			$estAdminMembre = $_POST['estAdminMembre'];
+		}
+		else{
+			$estAdminMembre = EST_ADMIN_NON;
+		}
 		$idGrade='2';
 		if($_FILES['avatar']["name"]=="")
 		{
 			$filename=null;
 			$modeleMembre->updateAvatarMembre($idMembre, $filename);
-		}
-		
+		}		
 		else if($_FILES['avatar']["name"]){
 			$extension = strrchr($_FILES['avatar']['name'], '.');
 			$dossier = 'avatar';
@@ -64,15 +63,11 @@ if(!empty($_POST)) {
 			}
 			$modeleMembre->updateAvatarMembre($idMembre, $filename);
 		}
-		
 		if ($estAdminMembre==EST_ADMIN_OUI){
 			$idGrade='1';
-		}
-		
-		if(empty($_POST['editionIdMembre'])) {
-			
-			$modeleMembre->ajoutMembre($idGrade,$mailMembre, $pseudoMembre, $mdpMembre, $nomMembre, $prenomMembre, $adresseMembre, $cpMembre, $villeMembre, $estAdminMembre, $_POST['dateInscriptionMembre']);
-			
+		}	
+		if(empty($_POST['editionIdMembre'])) {		
+			$modeleMembre->ajoutMembre($idGrade,$mailMembre, $pseudoMembre, $mdpMembre, $nomMembre, $prenomMembre, $adresseMembre, $cpMembre, $villeMembre, $estAdminMembre);
 			header("Location: listeMembre.php?success=1");
 		} else {
 			$idMembre=$_POST['editionIdMembre'];

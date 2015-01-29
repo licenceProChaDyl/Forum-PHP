@@ -23,24 +23,18 @@
 					 <?php else: ?>
 					 <legend class="text-center header">Ajout nouveau membre<?php echo !empty($membre['pseudoMembre']) ? $membre['pseudoMembre'] : '' ?></legend>
 					 <?php endif; ?>
-					 
-					 <?php if(($_SESSION['estAdminMembre']==EST_ADMIN_OUI)):?>
+                   
                         <div class="form-group">
                             <span class="col-md-2 col-md-offset-2 text-center"> Pseudo</span>
                             <div class="col-md-4">
-                                <input id="pseudoMembre" name="pseudoMembre" type="text" class="form-control" placeholder="Pseudo" value="<?php echo !empty($membre['pseudoMembre']) ? $membre['pseudoMembre'] : '' ?>">
+                            <?php if(($_SESSION['estAdminMembre']==EST_ADMIN_OUI)):?>
+                             <input id="pseudoMembre" name="pseudoMembre" type="text" class="form-control" placeholder="Pseudo" value="<?php echo !empty($membre['pseudoMembre']) ? $membre['pseudoMembre'] : '' ?>"> 
+                             <?php else: ?>
+                             <input id="pseudoMembre" name="pseudoMembre" type="text" class="form-control" placeholder="Pseudo" value="<?php echo !empty($membre['pseudoMembre']) ? $membre['pseudoMembre'] : '' ?>" readonly>
+                             <?php endif; ?>
                             </div>
                         </div>
-                     <?php else: ?>
-                     
-                        <div class="form-group">
-                            <span class="col-md-2 col-md-offset-2 text-center"> Pseudo</span>
-                            <div class="col-md-4">
-                                <input id="pseudoMembre" name="pseudoMembre" type="text" class="form-control" placeholder="Pseudo" value="<?php echo !empty($membre['pseudoMembre']) ? $membre['pseudoMembre'] : '' ?>" readonly>
-                            </div>
-                        </div>
-                     <?php endif; ?>
-                        
+                                           
                         <div class="form-group">
                             <span class="col-md-2 col-md-offset-2 text-center"> Mot de passe</span>
                             <div class="col-md-4">

@@ -44,9 +44,9 @@
 	                                <div class="col-md-12">
 	                                    <form method="POST" class="navbar-form navbar-left" action="inscription.php">
 		                                    <div class="input-group">
-		                                        <input class="form-control" style="margin-bottom: 10px;" type="text" placeholder="Pseudo" id="pseudo" name="pseudo">
-												<input class="form-control" style="margin-bottom: 10px;" type="password" placeholder="Mot de pass" id="motdepass" name="motdepass">
-		                                        <input class="form-control" style="margin-bottom: 10px;" type="email" placeholder="Email" id="email" name="email">
+		                                        <input class="form-control" style="margin-bottom: 10px;" type="text" placeholder="Pseudo" id="pseudoMembre" name="pseudoMembre" required>
+												<input class="form-control" style="margin-bottom: 10px;" type="password" placeholder="Mot de pass" id="mdpMembre" name="mdpMembre" required>
+		                                        <input class="form-control" style="margin-bottom: 10px;" type="email" placeholder="Email" id="emailMembre" name="emailMembre" required>
 		                                       	<span class="input-group-btn" style="float:left">
 		                                            <input type="submit" class="btn btn-primary" value="Valider" />
 		                                        </span>

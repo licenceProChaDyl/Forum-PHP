@@ -35,8 +35,8 @@ class modeleMembre {
 	
 	public function addMembreInscription($mailMembre, $pseudoMembre, $mdpMembre){
 		$stmt = $this->pdo->prepare("
-			INSERT INTO membre (idGrade, mailMembre, mdpMembre, pseudoMembre, dateInscriptionMembre)
-			VALUES ('2', :mailMembre, :mdpMembre, :pseudoMembre, NOW())
+			INSERT INTO membre (idGrade, mailMembre, mdpMembre, pseudoMembre, dateInscriptionMembre, estAdminMembre)
+			VALUES ('2', :mailMembre, :mdpMembre, :pseudoMembre, NOW(), 'non')
 		");
 		$stmt->bindParam(':mailMembre', $mailMembre);
 		$stmt->bindParam(':pseudoMembre', $pseudoMembre);
@@ -46,22 +46,21 @@ class modeleMembre {
 	}
 	
 	
-	public function ajoutMembre($idGrade, $mailMembre, $pseudoMembre, $mdpMembre, $nomMembre, $prenomMembre, $adresseMembre, $cpMembre, $villeMembre, $estAdminMembre, $dateInscriptionMembre){
+	public function ajoutMembre($idGrade, $mailMembre, $mdpMembre, $pseudoMembre, $nomMembre, $prenomMembre, $adresseMembre, $cpMembre, $villeMembre, $estAdminMembre){
 		$stmt = $this->pdo->prepare("
-			INSERT INTO membre (idGrade, mailMembre, mdpMembre, pseudoMembre, mdpMembre, nomMembre, prenomMembre, adresseMembre, cpMembre, villeMembre, estAdminMembre, dateInscriptionMembre)
-			VALUES (:idGrade, :mailMembre, :mdpMembre, :pseudoMembre, :nomMembre, :prenomMembre, :adresseMembre, :cpMembre, :villeMembre, :estAdminMembre, :dateInscriptionMembre)
+			INSERT INTO membre (idGrade, mailMembre, mdpMembre, pseudoMembre, nomMembre, prenomMembre, adresseMembre, cpMembre, villeMembre, estAdminMembre, dateInscriptionMembre)
+			VALUES (:idGrade, :mailMembre, :mdpMembre, :pseudoMembre, :nomMembre, :prenomMembre, :adresseMembre, :cpMembre, :villeMembre, :estAdminMembre, NOW())
 		");
 		$stmt->bindParam(':idGrade', $idGrade);
 		$stmt->bindParam(':mailMembre', $mailMembre);
-		$stmt->bindParam(':pseudoMembre', $pseudoMembre);
 		$stmt->bindParam(':mdpMembre', $mdpMembre);
+		$stmt->bindParam(':pseudoMembre', $pseudoMembre);
 		$stmt->bindParam(':nomMembre', $nomMembre);
 		$stmt->bindParam(':prenomMembre', $prenomMembre);
 		$stmt->bindParam(':adresseMembre', $adresseMembre);
 		$stmt->bindParam(':cpMembre', $cpMembre);
 		$stmt->bindParam(':villeMembre', $villeMembre);
 		$stmt->bindParam(':estAdminMembre', $estAdminMembre);
-		$stmt->bindParam(':dateInscriptionMembre', $dateInscriptionMembre);
 	
 		return $stmt->execute();
 	}
@@ -111,13 +110,13 @@ class modeleMembre {
 	}
 	
 	public function getGradeMembre($idMembre) {
-		$stmt = $this->pdo->prepare('SELECT nomGrade FROM grade,membre WHERE MEMBRE.idGrade=GRADE.idGrade
-		AND membre.idMembre=:idMembre
+		$stmt = $this->pdo->prepare('SELECT nomGrade FROM GRADE,MEMBRE WHERE MEMBRE.idGrade=GRADE.idGrade
+		AND MEMBRE.idMembre=:idMembre
 		');
 		$stmt->bindParam(':idMembre', $idMembre);
 		$stmt->execute();
 	
-		return $stmt->fetch(PDO::FETCH_ASSOC);
+		return $stmt->fetch();
 	}
 	
 	public function updateAvatarMembre($idMembre, $lienAvatarMembre) {

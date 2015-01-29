@@ -12,13 +12,13 @@
 			</div>
 		</div>		
 			<div class="col-md-12">
-				<div class="col-md-2 well well-sm" style="min-height: 300px">
+				<div class="col-md-2 well well-sm">
 					<p style="margin-top: 25px">	 
 						<span><?php echo $reponse['pseudoMembre'];?></span>
 						<?php if($reponse['estAdminMembre']==EST_ADMIN_OUI):?>
-							<br><span><?php echo 'Administrateur';?></span><br>
+							<br><span><?php echo GRADE_ADMINISTRATEUR;?></span><br>
 						<?php else: ?>	 
-						<br><span><?php echo 'Membre lambda';?></span><br>
+							<br><span><?php echo GRADE_MEMBRE;?></span><br>
 						<?php endif; ?>	 
 						<br><img height="130" width="130" alt="Avatar utilisateur" src="<?php echo !empty($reponse['lienAvatarMembre']) ? $reponse['lienAvatarMembre'] : './assets/img/avatar.jpg' ?>" class="img-circle">			
 						<div class="hrSeparateur"></div>
@@ -33,7 +33,7 @@
 							        
 				<div class="col-md-10 well">
 					<span style="float:right">#<?php echo $reponse['idReponse'];?></span>
-					<p style="margin-top:25px;height:265px;"><?php echo $reponse['messageReponse'];?></p>
+					<p style="margin-top:25px;height:245px;"><?php echo $reponse['messageReponse'];?></p>
 						<ul style="float:right">
 							<li class="menuReponse"><a class="btn btn-warning" href="editerReponse.php?idReponse=<?php echo $reponse['idReponse'];?>">Modifier</a></li>
 							<li class="menuReponse"><a class="btn btn-danger" href="supprimerReponse.php?idReponse=<?php echo $reponse['idReponse'];?>">Supprimer</a></li>

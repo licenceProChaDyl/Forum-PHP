@@ -51,9 +51,14 @@
 	</div>
 
 		<div class="col-md-12">
-			<div class="col-md-2 well well-sm" style="min-height: 300px">
+			<div class="col-md-2 well well-sm">
 				<p style="margin-top: 25px">
-					<span><?php echo $membre['pseudoMembre'];?></span><br> <span><?php echo $nomGrade['nomGrade'];?></span><br>
+					<span><?php echo $membre['pseudoMembre'];?></span><br> 
+					<?php if($membre['estAdminMembre']==EST_ADMIN_OUI):?>
+						<span><?php echo GRADE_ADMINISTRATEUR;?></span><br>
+					<?php else: ?>
+						<span><?php echo GRADE_MEMBRE;?></span><br>
+					<?php endif; ?>	 
 					<br><img height="130" width="130" alt="Avatar utilisateur" src="<?php echo !empty($membre['lienAvatarMembre']) ? $membre['lienAvatarMembre'] : './assets/img/avatar.jpg' ?>" class="img-circle">			
 					<div class="hrSeparateur"></div>
 					<span>Date d'inscription :</span><br>
@@ -66,7 +71,7 @@
 			</div>  
 			<div class="col-md-10 well">
 				<span style="float:right">#<?php echo $sujet['idSujet'];?></span>
-				<p style="margin-top:25px;height:265px;">
+				<p style="margin-top:25px;height:245px;">
 					<?php echo $sujet['messageSujet'];?>
 				</p>
 				<?php if ($sujet['statutSujet']== STATUT_OUVERT):?>	

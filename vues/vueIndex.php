@@ -6,7 +6,13 @@
 
 <?php if (!empty($_REQUEST['okInscription'])): ?>
 	<div class="alert alert-success">
-		<p>Vootre inscription est validé, vous pouvez vous connecter.</p>
+		<p>Votre inscription est validé, vous pouvez vous connecter.</p>
+	</div>
+<?php endif ?>
+
+<?php if (!empty($_REQUEST['koInscription'])): ?>
+	<div class="alert alert-danger">
+		<p>Veuillez saisir une adresse mail valide.</p>
 	</div>
 <?php endif ?>
 

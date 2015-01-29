@@ -323,6 +323,7 @@ class modeleCommun {
 			FROM reponse
 			NATURAL JOIN membre
 			WHERE idSujet=:idSujet
+			ORDER BY idReponse ASC
 		');
 		$stmt->bindParam(':idSujet', $idSujet);
 		$stmt->execute();
