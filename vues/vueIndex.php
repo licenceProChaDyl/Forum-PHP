@@ -4,6 +4,12 @@
 	</div>
 <?php endif ?>
 
+<?php if (!empty($_REQUEST['pasLogged'])): ?>
+	<div class="alert alert-danger">
+		<p>Vous n'êtes pas autorisé à accéder à ce contenu. Connectez-vous ou inscrivez-vous.</p>
+	</div>
+<?php endif ?>
+
 <?php if (!empty($_REQUEST['okInscription'])): ?>
 	<div class="alert alert-success">
 		<p>Votre inscription est validé, vous pouvez vous connecter.</p>

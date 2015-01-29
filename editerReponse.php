@@ -5,7 +5,7 @@
 require_once 'config.php';
 if(empty($_SESSION['idMembre'])) 
 {
-	header('Location: ./');
+	header("Location: index.php?pasLogged=1");
 }
 else{
 	if (isset($_GET["idReponse"])){

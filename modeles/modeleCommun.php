@@ -272,6 +272,15 @@ class modeleCommun {
 		$stmt->execute();
 	}
 	
+	public function majReponseDeMembre($idReponse, $messageReponse) {
+		$stmt = $this->pdo->prepare('
+			UPDATE reponse SET messageReponse=:messageReponse WHERE idReponse=:idReponse
+		');
+		$stmt->bindParam(':messageReponse', $messageReponse);
+		$stmt->bindParam(':idReponse', $idReponse);
+		$stmt->execute();
+	}
+	
 	public function supprimerReponse($idReponse){
 		$stmt = $this->pdo->prepare('DELETE FROM reponse WHERE idReponse=:idReponse');
 		$stmt->bindParam(':idReponse', $idReponse);
