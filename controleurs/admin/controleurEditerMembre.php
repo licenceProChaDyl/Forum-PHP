@@ -67,7 +67,7 @@ if(!empty($_POST)) {
 			$idGrade='1';
 		}	
 		if(empty($_POST['editionIdMembre'])) {		
-			$modeleMembre->ajoutMembre($idGrade,$mailMembre, $pseudoMembre, $mdpMembre, $nomMembre, $prenomMembre, $adresseMembre, $cpMembre, $villeMembre, $estAdminMembre);
+			$modeleMembre->ajoutMembre($idGrade,$mailMembre, $mdpMembre, $pseudoMembre, $nomMembre, $prenomMembre, $adresseMembre, $cpMembre, $villeMembre, $estAdminMembre);
 			header("Location: listeMembre.php?success=1");
 		} else {
 			$idMembre=$_POST['editionIdMembre'];
